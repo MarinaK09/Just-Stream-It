@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>JustStreamIt</title>
+    <style type = "text/css">
+
+    </style>
+        
+</head>
+<body>
+    <header>
+ 
+        <div class= header-frame >
+            <h1> JustStreamIt </h1>
+            <h2> Accueil </h2>
+            <h2> Category </h2>
+        </div>
+    </header>
+<!-- Most rated movie --> 
+    <div class = category-frame >
+            
+            <p  id="4100" style= "float: left;"></p>
+            <div style=" text-indent: 50px;">
+                <h2 id = "4101"  ></h2>                               
+                <p> Genres : <span id = "4102"></span></p>
+                <p> Year : <span id = "4103"></span></p>
+                <p> Rated : <span id = "4104"></span></p>
+                <p> Imdb Score : <span id = "4105"></span></p>
+                <p> Directors : <span id = "4106"></span></p>
+                <p> Actors : <span id = "4107"></span></p>
+                <p> Duration : <span id = "4108"></span></p>
+                <p> Country : <span id = "4109"></span></p>
+                <p> Gross Income : <span id = "4110"></span></p>
+                <p> Description : <span id = "4111"></span></p>
+            </div>           
+    </div>
+
+    <h3 style="margin-left: 45%"> Most rated movies</h3>
+
+    <section class="top_rated">
+        <div class = "category-frame justification" >
+
+            <a class="switchLeftButton" onclick="sliderScroll('top_rated', 'left')"><p>&#x2190;</p></a>
+            <div class="content_wrapper">
+
+                <p  id="1" class="carousel__photo"></p>
+                <p  id="2" class="carousel__photo"></p>
+                <p  id="3" class="carousel__photo"></p>
+                <p  id="4" class="carousel__photo"></p>
+                <p  id="5" class="carousel__photo"></p>
+                <p  id="6" class="carousel__photo"></p>
+                <p  id="7" class="carousel__photo"></p>
+                 
+            </div>    
+            <a class="switchRightButton " onclick="sliderScroll('top_rated', 'right')"><p>&#x2192;</p></a>
+
+        </div>
+    </section>
+
+<!-- First category -->
+
+    <section class="movie_category_romantic">
+        <h3 style="margin-left: 45%"> Romantic movies</h3>
+            <div class = "category-frame justification" >
+                <a class="switchLeftButton" onclick="sliderScroll('movie_category_romantic', 'left')"><p>&#x2190;</p></a>
+                <div class="content_wrapper">
+    
+            
+                    <p  id="1001" ></p>
+                    <p  id="1002"></p>
+                    <p  id="1003"></p>
+                    <p  id="1004"></p>
+                    <p  id="1005"></p>
+                    <p  id="1006"></p>
+                    <p  id="1007"></p>
+                
+                </div>
+                <a class="switchRightButton " onclick="sliderScroll('movie_category_romantic', 'right')"><p>&#x2192;</p></a>
+
+            </div>
+    </section>
+
+<!-- second category -->
+
+    <section class="movie_category_action">
+        <h3 style="margin-left: 45%">Action movies</h3>
+            <div class = "category-frame justification" >
+                <a class="switchLeftButton" onclick="sliderScroll('movie_category_action', 'left')"><p>&#x2190;</p></a>
+                <div class="content_wrapper">
+
+                    
+                    <p id="2001" ></p>
+                    <p id="2002" ></p>
+                    <p id="2003" ></p>
+                    <p  id="2004"></p>
+                    <p  id="2005"></p>
+                    <p  id="2006"></p>
+                    <p  id="2007"></p>
+                
+                </div>
+                <a class="switchRightButton " onclick="sliderScroll('movie_category_action', 'right')"><p>&#x2192;</p></a>
+
+            </div>
+    </section>
+
+   
+    
+ 
+
+<!-- Third category -->
+
+
+    <section class="movie_category_comedy">
+        <h3 style="margin-left: 45%"> Comedy movies</h3>
+            <div class = "category-frame justification" >
+                <a class="switchLeftButton" onclick="sliderScroll('movie_category_comedy', 'left')"><p>&#x2190;</p></a>
+                <div class="content_wrapper">
+
+                    
+                    <p  id="3001" class="comedy"></p>
+                    <p  id="3002" class="comedy"></p>
+                    <p  id="3003" class="comedy"></p>
+                    <p  id="3004" class="comedy"></p>
+                    <p  id="3005" class="comedy"></p>
+                    <p  id="3006" class="comedy"></p>
+                    <p  id="3007" class="comedy"></p>
+                
+                </div>
+                <a class="switchRightButton " onclick="sliderScroll('movie_category_comedy', 'right')"><p>&#x2192;</p></a>
+
+            </div>
+    </section>
+
+
+
+     
+      <!-- The Modal -->  
+    <div id="modal_id" class="modal">
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p  id="img"></p>
+                <h2 id = "title" class= p_style></h2>                               
+                <p class= p_style > Genres : <span id = "genres"></span></p>
+                <p class= p_style > Year : <span id = "year"></span></p>
+                <p class= p_style > Rated : <span id = "rated"></span></p>
+                <p class= p_style > Imdb Score : <span id = "imdb_score"></span></p>
+                <p class= p_style > Directors : <span id = "directors"></span></p>
+                <p class= p_style > Actors : <span id = "actors"></span></p>
+                <p class= p_style > Duration : <span id = "duration"></span></p>
+                <p class= p_style > Country : <span id = "countries"></span></p>
+                <p class= p_style > Gross Income : <span id = "usa_gross_income"></span></p>
+                <p class= p_style > Description : <span id = "long_description"></span></p>
+    </div>  
+
+    <script src="juststreamit.js" ></script>
+</body>
+</html>

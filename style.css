@@ -1,0 +1,184 @@
+.header-frame {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 30px;
+  padding: 10px;
+}
+
+.category-frame
+{
+    overflow: hidden;
+    display: flex;
+    background-size : 15%;
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 5px;
+    align-self: center;
+
+}
+
+.justification
+{
+  max-width: 52%;
+  justify-content: space-between;
+  object-fit: cover;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  margin-left: 20%;
+}
+
+header 
+{
+  color: white;
+  background-color:rgb(187, 84, 16);
+  width: 100%;
+  height: 100px;
+  float: left;
+
+}
+
+
+.carousel {
+display: grid;
+grid-template-columns: repeat(10, 1fr);
+grid-template-rows: auto;
+align-content: center;
+text-align: center;
+}
+
+.switchLeftButton {
+visibility: hidden;
+grid-column: 1;
+margin: auto;
+text-align: center;
+font-size: 5em;
+}
+
+.switchRightButton {
+grid-column: 10;
+align-content: center;
+margin: auto;
+font-size: 5em;
+}
+
+.content_wrapper {
+grid-column: 2/9;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+grid-template-rows: auto;
+grid-gap: 8px;
+overflow-x: hidden;
+align-content: center;
+text-align: center;
+width: calc(182px*4 + 8px*3);
+padding-bottom: 10px;
+transition: 0.5s ease;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: black;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.p_style {
+      color : white;
+}
+
+/* The carousel buttons*/
+.carousel__button--prev,
+.carousel__button--next {
+position: absolute;
+/*top:50%;*/
+width: 3rem;
+height: 3rem;
+background-color: #FFF;
+transform: translateY(-50%);
+border-radius: 50%;
+cursor: pointer; 
+z-index: 50; /* Sit on top of everything */
+border: 1px solid black;
+
+}
+.carousel__button--prev {
+left:16%;
+align-self: center;
+}
+.carousel__button--next {
+right:24%;
+align-self: center;
+}
+.carousel__button--prev::after,
+.carousel__button--next::after {
+content: " ";
+position: absolute;
+width: 10px;
+height: 10px;
+top: 50%;
+left: 54%;
+border-right: 2px solid black;
+border-bottom: 2px solid black;
+transform: translate(-50%, -50%) rotate(135deg);
+}
+.carousel__button--next::after {
+left: 47%;
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.carousel__photo {
+opacity: 1;
+/* position: absolute;
+top:0;
+margin: auto;
+padding: 1rem 4rem;*/
+width: 100%;
+z-index: 100;
+transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+.carousel__photo.prev,
+.carousel__photo.next {
+z-index: 800;
+}
+.carousel__photo.prev {
+transform: translateX(-100%); /* Move 'prev' item to the left */
+}
+.carousel__photo.next {
+transform: translateX(100%); /* Move 'next' item to the right */
+}
