@@ -1,3 +1,5 @@
+
+// This function gets the url of the movie where we can find all the information requested
 function getUrl (url, i, j, k) {
 
     fetch(url)
@@ -11,7 +13,7 @@ function getUrl (url, i, j, k) {
      })
 }
 
-
+// This function gets the object containing all the information requested to be shown in the modal
 function getInfo(movie_url, j, k) {
 
         fetch(movie_url)
@@ -19,7 +21,6 @@ function getInfo(movie_url, j, k) {
             .then (function (data){
                 let movie = new Object();
                 movie = data;
-                //console.log(movie);
                 var img = document.createElement("img");
                 img.src = movie.image_url;
                 var p = document.getElementById(j+k+1);
@@ -34,6 +35,7 @@ function getInfo(movie_url, j, k) {
         
 }
 
+// The modal
 function showModal(movie) {
 
         // Get the modal
@@ -88,6 +90,7 @@ function showModal(movie) {
         }
 }
 
+//This function is especially built for the Most rated movie
 function getMostRatedMovie(movie_url) {
 
     fetch(movie_url)
@@ -98,6 +101,7 @@ function getMostRatedMovie(movie_url) {
             var img = document.createElement("img");
             img.src = movie.image_url;
             var p_0 = document.getElementById(4100);
+            // Each paragraph p corresponds to an information
             p_0.appendChild(img);
             var p_1 = document.getElementById(4101);
             var p_2 = document.getElementById(4102);
@@ -147,210 +151,11 @@ function paging (urls, k) {
         getUrl(urls[1], i , j, k);
  
 
-}
+ }
   
-
 }
 
-
-
-//      Début caroussel
-/*
-var itemClassName = "carousel__photo";
-    items = document.getElementsByClassName(itemClassName),
-    totalItems = items.length,
-    slide = 0,
-    moving = true;
-
-// Set classes
-function setInitialClasses() {
-    // Targets the previous, current, and next items
-    // This assumes there are at least three items.
-    items[totalItems - 1].classList.add("prev");
-    items[0].classList.add("active");
-    items[1].classList.add("next");
-  }
-  // Set event listeners
-  function setEventListeners() {
-    var next = document.getElementsByClassName('carousel__button--next')[0],
-        prev = document.getElementsByClassName('carousel__button--prev')[0];
-    next.addEventListener('click', moveNext);
-    prev.addEventListener('click', movePrev);
-  }
-
-// Next navigation handler
-function moveNext() {
-    // Check if moving
-    if (!moving) {
-      // If it's the last slide, reset to 0, else +1
-      if (slide === (totalItems - 1)) {
-        slide = 0;
-      } else {
-        slide++;
-      }
-      // Move carousel to updated slide
-      moveCarouselToNext(slide);
-    }
-  }
-  // Previous navigation handler
-  function movePrev() {
-    // Check if moving
-    if (!moving) {
-      // If it's the first slide, set as the last slide, else -1
-      if (slide === 0) {
-        slide = (totalItems - 1);
-      } else {
-        slide--;
-      }
-            
-      // Move carousel to updated slide
-      moveCarouselToPrev(slide);
-    }
-  }
-
-  function disableInteraction() {
-    // Set 'moving' to true for the same duration as our transition.
-    // (0.5s = 500ms)
-    
-    moving = true;
-    // setTimeout runs its function once after the given time
-    setTimeout(function(){
-      moving = false
-    }, 500);
-  }
-
-  function moveCarouselToNext(slide) {
-    // Check if carousel is moving, if not, allow interaction
-    if(!moving) {
-      // temporarily disable interactivity
-      disableInteraction();
-      // Update the "old" adjacent slides with "new" ones
-      var newPrevious = slide - 1,
-          newNext = slide + 1,
-          oldPrevious = slide - 2,
-          oldNext = slide + 2;
-      // Test if carousel has more than three items
-      if ((totalItems - 1) > 3) {
-        // Checks and updates if the new slides are out of bounds
-        if (newPrevious <= 0) {
-          oldPrevious = (totalItems - 1);
-        } else if (newNext >= (totalItems - 1)){
-          oldNext = 0;
-        }
-        // Checks and updates if slide is at the beginning/end
-        if (slide === 0) {
-          newPrevious = (totalItems - 1);
-          oldPrevious = (totalItems - 2);
-          oldNext = (slide + 1);
-        } else if (slide === (totalItems -1)) {
-          newPrevious = (slide - 1);
-          newNext = 0;
-          oldNext = 1;
-        }
-        // Now we've worked out where we are and where we're going, 
-        // by adding/removing classes we'll trigger the transitions.
-        // Reset old next/prev elements to default classes
-        items[oldPrevious].className = itemClassName;
-        items[oldNext].className = itemClassName;
-        // Add new classes
-        for (var i= 0; i< 6; i++){
-
-            items[i].className = itemClassName + " prev";
-    
-        }
-
-      }
-    }
-  }
-
-  function moveCarouselToPrev(slide) {
-    // Check if carousel is moving, if not, allow interaction
-    if(!moving) {
-      // temporarily disable interactivity
-      disableInteraction();
-      // Update the "old" adjacent slides with "new" ones
-      var newPrevious = slide - 1,
-          newNext = slide + 1,
-          oldPrevious = slide - 2,
-          oldNext = slide + 2;
-      // Test if carousel has more than three items
-      if ((totalItems - 1) > 3) {
-        // Checks and updates if the new slides are out of bounds
-        if (newPrevious <= 0) {
-          oldPrevious = (totalItems - 1);
-        } else if (newNext >= (totalItems - 1)){
-          oldNext = 0;
-        }
-        // Checks and updates if slide is at the beginning/end
-        if (slide === 0) {
-          newPrevious = (totalItems - 1);
-          oldPrevious = (totalItems - 2);
-          oldNext = (slide + 1);
-        } else if (slide === (totalItems -1)) {
-          newPrevious = (slide - 1);
-          newNext = 0;
-          oldNext = 1;
-        }
-        // Now we've worked out where we are and where we're going, 
-        // by adding/removing classes we'll trigger the transitions.
-        // Reset old next/prev elements to default classes
-        items[oldPrevious].className = itemClassName;
-        items[oldNext].className = itemClassName;
-        // Add new classes
-        for (var i= 0; i< 6; i++){
-
-            items[i].className = itemClassName + " next";
-    
-        }
-        
-        
-      }
-    }
-  }
-
-  function initCarousel() {
-    //setInitialClasses();
-    setEventListeners();
-    // Set moving to false so that the carousel becomes interactive
-    moving = false;
-  }
-
-  // make it rain
-initCarousel();
-*/
-//           Fin caroussel    
-
-
-let url_mostRatedMovie = "http://localhost:8000/api/v1/titles/1508669";
-
-let url_1_cat_1 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9.4&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
-let url_2_cat_1 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9.4&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
-let urls_cat_1 = [url_1_cat_1, url_2_cat_1];
-
-let url_1_cat_2 = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=romance&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
-let url_2_cat_2 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=romance&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
-let urls_cat_2 = [url_1_cat_2, url_2_cat_2];
-
-let url_1_cat_3 = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=action&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
-let url_2_cat_3 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=action&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
-let urls_cat_3 = [url_1_cat_3, url_2_cat_3];
-
-let url_1_cat_4 = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=comedy&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
-let url_2_cat_4 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=comedy&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
-let urls_cat_4 = [url_1_cat_4, url_2_cat_4];
-
-getMostRatedMovie(url_mostRatedMovie);
-
-paging(urls_cat_1, 0);
-
-paging(urls_cat_2, 1000);
-
-paging(urls_cat_3, 2000);
-
-paging(urls_cat_4, 3000);
-
-
-
+// The carousel
 // Scroll Functionality
 var scrollAmountlist = [0, 0, 0, 0];
 
@@ -367,7 +172,6 @@ function sliderScroll(movie_category, side) {
 	let scrollPerClick = 182 + 8;
 	let slider_select = "."+movie_category+" .content_wrapper";
 	let sliders = document.querySelector(slider_select);
-	console.log(movie_category);
 
 	if (side === "left") {
 		sliders.scrollTo({top: 0, left: (scrollAmount -= scrollPerClick), behavior: "smooth"});
@@ -380,13 +184,50 @@ function sliderScroll(movie_category, side) {
 
 	scrollAmountlist[i] = scrollAmount
 
-	console.log("Scroll Amount: ", scrollAmount);
-	console.log(sliders.scrollWidth - sliders.clientWidth);
-
 	if (scrollAmount === 0) {switchLeftButton.style.visibility = "hidden";}
 	else if (scrollAmount != 0 && scrollAmount < sliders.scrollWidth - sliders.clientWidth) {
 		switchLeftButton.style.visibility = "visible";
 		switchRightButton.style.visibility = "visible";
 	} else if (scrollAmount >= sliders.scrollWidth - sliders.clientWidth) {switchRightButton.style.visibility = "hidden";}
 }
+
+
+
+// The urls
+
+// Most rated movie 
+let url_mostRatedMovie = "http://localhost:8000/api/v1/titles/1508669";
+
+// 7 first most rated movies
+let url_1_cat_1 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9.4&lang=&lang_contains=&max_year=&min_year=&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
+let url_2_cat_1 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=9.4&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
+let urls_cat_1 = [url_1_cat_1, url_2_cat_1];
+
+//First category
+let url_1_cat_2 = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=romance&genre_contains=&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
+let url_2_cat_2 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=romance&genre_contains=&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
+let urls_cat_2 = [url_1_cat_2, url_2_cat_2];
+
+//Second category
+let url_1_cat_3 = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=action&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
+let url_2_cat_3 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=action&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
+let urls_cat_3 = [url_1_cat_3, url_2_cat_3];
+//Third category
+let url_1_cat_4 = "http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=comedy&sort_by=&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=";
+let url_2_cat_4 = "http://localhost:8000/api/v1/titles/?actor=&actor_contains=&company=&company_contains=&country=&country_contains=&director=&director_contains=&genre=&genre_contains=comedy&imdb_score=&imdb_score_max=&imdb_score_min=&lang=&lang_contains=&max_year=&min_year=&page=2&rating=&rating_contains=&sort_by=&title=&title_contains=&writer=&writer_contains=&year=";
+let urls_cat_4 = [url_1_cat_4, url_2_cat_4];
+
+getMostRatedMovie(url_mostRatedMovie);
+
+paging(urls_cat_1, 0);
+
+paging(urls_cat_2, 1000);
+
+paging(urls_cat_3, 2000);
+
+paging(urls_cat_4, 3000);
+
+
+
+
 

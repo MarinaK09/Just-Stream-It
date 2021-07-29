@@ -41,45 +41,6 @@ header
 }
 
 
-.carousel {
-display: grid;
-grid-template-columns: repeat(10, 1fr);
-grid-template-rows: auto;
-align-content: center;
-text-align: center;
-}
-
-.switchLeftButton {
-visibility: hidden;
-grid-column: 1;
-margin: auto;
-text-align: center;
-font-size: 5em;
-}
-
-.switchRightButton {
-grid-column: 10;
-align-content: center;
-margin: auto;
-font-size: 5em;
-}
-
-.content_wrapper {
-grid-column: 2/9;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-grid-template-rows: auto;
-grid-gap: 8px;
-overflow-x: hidden;
-align-content: center;
-text-align: center;
-width: calc(182px*4 + 8px*3);
-padding-bottom: 10px;
-transition: 0.5s ease;
-}
-
-
-
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -120,65 +81,42 @@ transition: 0.5s ease;
       color : white;
 }
 
-/* The carousel buttons*/
-.carousel__button--prev,
-.carousel__button--next {
-position: absolute;
-/*top:50%;*/
-width: 3rem;
-height: 3rem;
-background-color: #FFF;
-transform: translateY(-50%);
-border-radius: 50%;
-cursor: pointer; 
-z-index: 50; /* Sit on top of everything */
-border: 1px solid black;
 
-}
-.carousel__button--prev {
-left:16%;
-align-self: center;
-}
-.carousel__button--next {
-right:24%;
-align-self: center;
-}
-.carousel__button--prev::after,
-.carousel__button--next::after {
-content: " ";
-position: absolute;
-width: 10px;
-height: 10px;
-top: 50%;
-left: 54%;
-border-right: 2px solid black;
-border-bottom: 2px solid black;
-transform: translate(-50%, -50%) rotate(135deg);
-}
-.carousel__button--next::after {
-left: 47%;
-transform: translate(-50%, -50%) rotate(-45deg);
-}
+.carousel {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+  align-content: center;
+  text-align: center;
+  }
+  
+  .switchLeftButton {
+  visibility: hidden;
+  grid-column: 1;
+  margin: auto;
+  text-align: center;
+  font-size: 5em;
+  }
+  
+  .switchRightButton {
+  grid-column: 10;
+  align-content: center;
+  margin: auto;
+  font-size: 5em;
+  }
+  
+  .content_wrapper {
+  grid-column: 2/9;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 8px;
+  overflow-x: hidden;
+  align-content: center;
+  text-align: center;
+  width: calc(182px*4 + 8px*3);
+  padding-bottom: 10px;
+  transition: 0.5s ease;
+  }
+  
 
-
-.carousel__photo {
-opacity: 1;
-/* position: absolute;
-top:0;
-margin: auto;
-padding: 1rem 4rem;*/
-width: 100%;
-z-index: 100;
-transition: transform .5s, opacity .5s, z-index .5s;
-}
-
-.carousel__photo.prev,
-.carousel__photo.next {
-z-index: 800;
-}
-.carousel__photo.prev {
-transform: translateX(-100%); /* Move 'prev' item to the left */
-}
-.carousel__photo.next {
-transform: translateX(100%); /* Move 'next' item to the right */
-}
