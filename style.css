@@ -82,14 +82,6 @@ header
 }
 
 
-.carousel {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: auto;
-  align-content: center;
-  text-align: center;
-  }
-  
   .switchLeftButton {
   visibility: hidden;
   grid-column: 1;
@@ -119,4 +111,3 @@ header
   transition: 0.5s ease;
   }
   
-

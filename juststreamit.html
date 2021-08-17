@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
     <title>JustStreamIt</title>
-    <style type = "text/css">
-
-    </style>
-        
+    <style type = "text/css"></style>
+      
 </head>
+
 <body>
     <header>
  
@@ -20,6 +19,7 @@
             <h2> Category </h2>
         </div>
     </header>
+    
 <!-- Most rated movie --> 
     <div class = category-frame >
             
@@ -47,13 +47,13 @@
             <a class="switchLeftButton" onclick="sliderScroll('top_rated', 'left')"><p>&#x2190;</p></a>
             <div class="content_wrapper">
 
-                <p  id="1" class="carousel__photo"></p>
-                <p  id="2" class="carousel__photo"></p>
-                <p  id="3" class="carousel__photo"></p>
-                <p  id="4" class="carousel__photo"></p>
-                <p  id="5" class="carousel__photo"></p>
-                <p  id="6" class="carousel__photo"></p>
-                <p  id="7" class="carousel__photo"></p>
+                <p  id="top_rated_photo_1" class="carousel__photo"></p>
+                <p  id="top_rated_photo_2" class="carousel__photo"></p>
+                <p  id="top_rated_photo_3" class="carousel__photo"></p>
+                <p  id="top_rated_photo_4" class="carousel__photo"></p>
+                <p  id="top_rated_photo_5" class="carousel__photo"></p>
+                <p  id="top_rated_photo_6" class="carousel__photo"></p>
+                <p  id="top_rated_photo_7" class="carousel__photo"></p>
                  
             </div>    
             <a class="switchRightButton " onclick="sliderScroll('top_rated', 'right')"><p>&#x2192;</p></a>
@@ -70,13 +70,13 @@
                 <div class="content_wrapper">
     
             
-                    <p  id="1001" ></p>
-                    <p  id="1002"></p>
-                    <p  id="1003"></p>
-                    <p  id="1004"></p>
-                    <p  id="1005"></p>
-                    <p  id="1006"></p>
-                    <p  id="1007"></p>
+                    <p  id="romantic_photo_1" ></p>
+                    <p  id="romantic_photo_2"></p>
+                    <p  id="romantic_photo_3"></p>
+                    <p  id="romantic_photo_4"></p>
+                    <p  id="romantic_photo_5"></p>
+                    <p  id="romantic_photo_6"></p>
+                    <p  id="romantic_photo_7"></p>
                 
                 </div>
                 <a class="switchRightButton " onclick="sliderScroll('movie_category_romantic', 'right')"><p>&#x2192;</p></a>
@@ -93,13 +93,13 @@
                 <div class="content_wrapper">
 
                     
-                    <p id="2001" ></p>
-                    <p id="2002" ></p>
-                    <p id="2003" ></p>
-                    <p  id="2004"></p>
-                    <p  id="2005"></p>
-                    <p  id="2006"></p>
-                    <p  id="2007"></p>
+                    <p id="action_photo_1" ></p>
+                    <p id="action_photo_2" ></p>
+                    <p id="action_photo_3" ></p>
+                    <p  id="action_photo_4"></p>
+                    <p  id="action_photo_5"></p>
+                    <p  id="action_photo_6"></p>
+                    <p  id="action_photo_7"></p>
                 
                 </div>
                 <a class="switchRightButton " onclick="sliderScroll('movie_category_action', 'right')"><p>&#x2192;</p></a>
@@ -108,8 +108,7 @@
     </section>
 
    
-<!-- Third category -->
-
+    <!-- Third category -->
 
     <section class="movie_category_comedy">
         <h3 style="margin-left: 45%"> Comedy movies</h3>
@@ -118,13 +117,13 @@
                 <div class="content_wrapper">
 
                     
-                    <p  id="3001" class="comedy"></p>
-                    <p  id="3002" class="comedy"></p>
-                    <p  id="3003" class="comedy"></p>
-                    <p  id="3004" class="comedy"></p>
-                    <p  id="3005" class="comedy"></p>
-                    <p  id="3006" class="comedy"></p>
-                    <p  id="3007" class="comedy"></p>
+                    <p  id="comedy_photo_1" class="comedy"></p>
+                    <p  id="comedy_photo_2" class="comedy"></p>
+                    <p  id="comedy_photo_3" class="comedy"></p>
+                    <p  id="comedy_photo_4" class="comedy"></p>
+                    <p  id="comedy_photo_5" class="comedy"></p>
+                    <p  id="comedy_photo_6" class="comedy"></p>
+                    <p  id="comedy_photo_7" class="comedy"></p>
                 
                 </div>
                 <a class="switchRightButton " onclick="sliderScroll('movie_category_comedy', 'right')"><p>&#x2192;</p></a>
@@ -132,8 +131,8 @@
             </div>
     </section>
 
-     
-      <!-- The Modal -->  
+   
+    <!-- The Modal -->  
     <div id="modal_id" class="modal">
 
         <!-- Modal content -->
@@ -151,6 +150,7 @@
                 <p class= p_style > Country : <span id = "countries"></span></p>
                 <p class= p_style > Gross Income : <span id = "usa_gross_income"></span></p>
                 <p class= p_style > Description : <span id = "long_description"></span></p>
+            </div>  
     </div>  
 
     <script src="juststreamit.js" ></script>
