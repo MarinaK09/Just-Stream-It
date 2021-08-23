@@ -168,7 +168,7 @@ else if (movie_category === "movie_category_comedy"){i = 3;}
 let scrollAmount = scrollAmountlist[i];
 let switchLeftButton = document.getElementsByClassName("switchLeftButton")[i];
 let switchRightButton = document.getElementsByClassName("switchRightButton")[i];
-let scrollPerClick = 182 + 8;
+let scrollPerClick = 190;
 let slider_select = "."+movie_category+" .content_wrapper";
 let sliders = document.querySelector(slider_select);
 
