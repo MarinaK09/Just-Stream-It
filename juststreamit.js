@@ -102,17 +102,17 @@ function getMostRatedMovie(movie_url) {
           var p_0 = document.getElementById(4100);
           // Each paragraph p corresponds to an information
           p_0.appendChild(img);
-          var p_1 = document.getElementById(4101);
-          var p_2 = document.getElementById(4102);
-          var p_3 = document.getElementById(4103);
-          var p_4 = document.getElementById(4104);
-          var p_5 = document.getElementById(4105);
-          var p_6 = document.getElementById(4106);
-          var p_7 = document.getElementById(4107);
-          var p_8 = document.getElementById(4108);
-          var p_9 = document.getElementById(4109);
-          var p_10 = document.getElementById(4110);
-          var p_11 = document.getElementById(4111);
+          var p_1 = document.getElementById("top_rated_title");
+          var p_2 = document.getElementById("top_rated_genres");
+          var p_3 = document.getElementById("top_rated_year");
+          var p_4 = document.getElementById("top_rated_rated");
+          var p_5 = document.getElementById("top_rated_imdb_score");
+          var p_6 = document.getElementById("top_rated_directors");
+          var p_7 = document.getElementById("top_rated_actors");
+          var p_8 = document.getElementById("top_rated_duration");
+          var p_9 = document.getElementById("top_rated_countries");
+          var p_10 = document.getElementById("top_rated_usa_gross_income");
+          var p_11 = document.getElementById("top_rated_long_description");
 
           p_0.innerHTML = '';
           p_0.appendChild(img);

@@ -84,21 +84,18 @@ header
 
   .switchLeftButton {
   visibility: hidden;
-  grid-column: 1;
   margin: auto;
   text-align: center;
   font-size: 5em;
   }
   
   .switchRightButton {
-  grid-column: 10;
   align-content: center;
   margin: auto;
   font-size: 5em;
   }
   
   .content_wrapper {
-  grid-column: 2/9;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -106,7 +103,7 @@ header
   overflow-x: hidden;
   align-content: center;
   text-align: center;
-  width: calc(182px*4 + 8px*3);
+  width: 100%;
   padding-bottom: 10px;
   transition: 0.5s ease;
   }
